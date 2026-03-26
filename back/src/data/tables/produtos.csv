@@ -1,0 +1,4 @@
+id_produto,nome_produto,categoria,complexidade
+1,Dashboards,Visualização,Alta
+2,SAAS de registro,Input de Dados,Baixa
+3,Automação de dados,Processamento,Média

@@ -1,0 +1,101 @@
+id_lead,id_cliente,id_canal,nome_contato,status,data_captacao
+L001,1,2,Contato Cliente 1,Convertido,2025-09-02
+L002,2,1,Contato Cliente 2,Convertido,2025-09-03
+L003,3,5,Contato Cliente 3,Convertido,2025-09-04
+L004,4,4,Contato Cliente 4,Convertido,2025-09-05
+L005,5,4,Contato Cliente 5,Convertido,2025-09-06
+L006,6,3,Contato Cliente 6,Convertido,2025-09-07
+L007,7,2,Contato Cliente 7,Convertido,2025-09-08
+L008,8,9,Contato Cliente 8,Convertido,2025-09-09
+L009,9,2,Contato Cliente 9,Convertido,2025-09-10
+L010,10,10,Contato Cliente 10,Convertido,2025-09-11
+L011,11,7,Contato Cliente 11,Convertido,2025-09-12
+L012,12,1,Contato Cliente 12,Convertido,2025-09-13
+L013,13,1,Contato Cliente 13,Convertido,2025-09-14
+L014,14,2,Contato Cliente 14,Convertido,2025-09-15
+L015,15,4,Contato Cliente 15,Convertido,2025-09-16
+L016,16,4,Contato Cliente 16,Convertido,2025-09-17
+L017,17,9,Contato Cliente 17,Convertido,2025-09-18
+L018,18,10,Contato Cliente 18,Convertido,2025-09-19
+L019,19,1,Contato Cliente 19,Convertido,2025-09-20
+L020,20,9,Contato Cliente 20,Convertido,2025-09-21
+L021,21,4,Contato Cliente 21,Convertido,2025-09-22
+L022,22,9,Contato Cliente 22,Convertido,2025-09-23
+L023,23,7,Contato Cliente 23,Convertido,2025-09-24
+L024,24,4,Contato Cliente 24,Convertido,2025-09-25
+L025,25,8,Contato Cliente 25,Convertido,2025-09-26
+L026,26,10,Contato Cliente 26,Convertido,2025-09-27
+L027,27,5,Contato Cliente 27,Convertido,2025-09-28
+L028,28,1,Contato Cliente 28,Convertido,2025-09-29
+L029,29,3,Contato Cliente 29,Convertido,2025-09-30
+L030,30,7,Contato Cliente 30,Convertido,2025-10-01
+L031,,6,Lead Interessado 31,Em Aberto,2025-10-02
+L032,,3,Lead Interessado 32,Perdido,2025-10-03
+L033,,6,Lead Interessado 33,Perdido,2025-10-04
+L034,,2,Lead Interessado 34,Em Aberto,2025-10-05
+L035,,2,Lead Interessado 35,Em Aberto,2025-10-06
+L036,,6,Lead Interessado 36,Em Aberto,2025-10-07
+L037,,1,Lead Interessado 37,Em Aberto,2025-10-08
+L038,,9,Lead Interessado 38,Perdido,2025-10-09
+L039,,7,Lead Interessado 39,Perdido,2025-10-10
+L040,,9,Lead Interessado 40,Em Aberto,2025-10-11
+L041,,10,Lead Interessado 41,Em Aberto,2025-10-12
+L042,,10,Lead Interessado 42,Perdido,2025-10-13
+L043,,2,Lead Interessado 43,Perdido,2025-10-14
+L044,,4,Lead Interessado 44,Em Aberto,2025-10-15
+L045,,2,Lead Interessado 45,Perdido,2025-10-16
+L046,,2,Lead Interessado 46,Em Aberto,2025-10-17
+L047,,5,Lead Interessado 47,Em Aberto,2025-10-18
+L048,,6,Lead Interessado 48,Perdido,2025-10-19
+L049,,6,Lead Interessado 49,Em Aberto,2025-10-20
+L050,,4,Lead Interessado 50,Em Aberto,2025-10-21
+L051,,2,Lead Interessado 51,Perdido,2025-10-22
+L052,,9,Lead Interessado 52,Perdido,2025-10-23
+L053,,3,Lead Interessado 53,Em Aberto,2025-10-24
+L054,,7,Lead Interessado 54,Em Aberto,2025-10-25
+L055,,9,Lead Interessado 55,Perdido,2025-10-26
+L056,,6,Lead Interessado 56,Perdido,2025-10-27
+L057,,4,Lead Interessado 57,Perdido,2025-10-28
+L058,,6,Lead Interessado 58,Em Aberto,2025-10-29
+L059,,5,Lead Interessado 59,Perdido,2025-10-30
+L060,,4,Lead Interessado 60,Em Aberto,2025-10-31
+L061,,4,Lead Interessado 61,Em Aberto,2025-11-01
+L062,,7,Lead Interessado 62,Em Aberto,2025-11-02
+L063,,3,Lead Interessado 63,Em Aberto,2025-11-03
+L064,,3,Lead Interessado 64,Perdido,2025-11-04
+L065,,9,Lead Interessado 65,Em Aberto,2025-11-05
+L066,,10,Lead Interessado 66,Em Aberto,2025-11-06
+L067,,10,Lead Interessado 67,Em Aberto,2025-11-07
+L068,,6,Lead Interessado 68,Perdido,2025-11-08
+L069,,3,Lead Interessado 69,Em Aberto,2025-11-09
+L070,,2,Lead Interessado 70,Perdido,2025-11-10
+L071,,2,Lead Interessado 71,Perdido,2025-11-11
+L072,,3,Lead Interessado 72,Em Aberto,2025-11-12
+L073,,10,Lead Interessado 73,Perdido,2025-11-13
+L074,,7,Lead Interessado 74,Em Aberto,2025-11-14
+L075,,10,Lead Interessado 75,Em Aberto,2025-11-15
+L076,,9,Lead Interessado 76,Em Aberto,2025-11-16
+L077,,9,Lead Interessado 77,Perdido,2025-11-17
+L078,,2,Lead Interessado 78,Em Aberto,2025-11-18
+L079,,6,Lead Interessado 79,Perdido,2025-11-19
+L080,,5,Lead Interessado 80,Em Aberto,2025-11-20
+L081,,3,Lead Interessado 81,Em Aberto,2025-11-21
+L082,,1,Lead Interessado 82,Em Aberto,2025-11-22
+L083,,9,Lead Interessado 83,Perdido,2025-11-23
+L084,,9,Lead Interessado 84,Perdido,2025-11-24
+L085,,5,Lead Interessado 85,Perdido,2025-11-25
+L086,,3,Lead Interessado 86,Em Aberto,2025-11-26
+L087,,3,Lead Interessado 87,Perdido,2025-11-27
+L088,,10,Lead Interessado 88,Em Aberto,2025-11-28
+L089,,8,Lead Interessado 89,Perdido,2025-11-29
+L090,,2,Lead Interessado 90,Em Aberto,2025-11-30
+L091,,5,Lead Interessado 91,Perdido,2025-12-01
+L092,,1,Lead Interessado 92,Perdido,2025-12-02
+L093,,10,Lead Interessado 93,Perdido,2025-12-03
+L094,,2,Lead Interessado 94,Em Aberto,2025-12-04
+L095,,2,Lead Interessado 95,Perdido,2025-12-05
+L096,,3,Lead Interessado 96,Em Aberto,2025-12-06
+L097,,9,Lead Interessado 97,Perdido,2025-12-07
+L098,,5,Lead Interessado 98,Em Aberto,2025-12-08
+L099,,4,Lead Interessado 99,Perdido,2025-12-09
+L100,,5,Lead Interessado 100,Em Aberto,2025-12-10

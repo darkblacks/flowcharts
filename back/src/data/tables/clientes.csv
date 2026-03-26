@@ -1,0 +1,31 @@
+id_cliente,nome_empresa,id_setor,segmento,data_cadastro
+1,Auto Peças Santo André,1,Varejo,2025-10-15
+2,Contabilidade Silva,2,Serviços,2025-10-16
+3,Mecânica Avançada,1,Oficina,2025-10-20
+4,Auditoria Real,2,Consultoria,2025-10-22
+5,Logística Veloz,1,Transporte,2025-10-25
+6,Escritório Modelo,2,Serviços,2025-10-28
+7,Retífica de Motores ABC,1,Indústria,2025-11-02
+8,Tax Solutions,2,Consultoria,2025-11-05
+9,Concessionária Premium,1,Varejo,2025-11-08
+10,Perícia Contábil Victor,2,Serviços,2025-11-12
+11,Auto Elétrica faísca,1,Oficina,2025-11-15
+12,Gestão Fiscal Ltda,2,Auditoria,2025-11-18
+13,Transportadora Rápida,1,Transporte,2025-11-20
+14,Contadores Associados,2,Serviços,2025-11-22
+15,Peças e Acessórios SP,1,Varejo,2025-11-25
+16,Auditoria Digital,2,Consultoria,2025-11-28
+17,Frotas S.A.,1,Transporte,2025-12-02
+18,Balanço Certo,2,Serviços,2025-12-05
+19,Centro Automotivo,1,Oficina,2025-12-08
+20,Consultoria Tributária,2,Consultoria,2025-12-12
+21,Distribuidora de Peças,1,Varejo,2025-12-15
+22,Escritório de Contas,2,Serviços,2025-12-18
+23,Indústria de Componentes,1,Indústria,2025-12-20
+24,Auditoria Integrada,2,Auditoria,2025-12-22
+25,Locadora de Veículos,1,Transporte,2025-12-25
+26,Contabilidade de Sucesso,2,Serviços,2025-12-28
+27,Retífica Santo André,1,Oficina,2026-01-02
+28,Planejamento Fiscal,2,Consultoria,2026-01-04
+29,Mecânica de Precisão,1,Indústria,2026-01-05
+30,Soluções Contábeis,2,Serviços,2026-01-06
