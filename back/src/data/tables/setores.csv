@@ -1,7 +1,0 @@
-id_setor,nome_setor,categoria_mestre
-1,Automobilístico,Geral
-2,Indústria de Peças,Automobilístico
-3,Oficinas Mecânicas,Automobilístico
-4,Contabilidade,Geral
-5,Escritórios Contábeis,Contabilidade
-6,Auditoria,Contabilidade
