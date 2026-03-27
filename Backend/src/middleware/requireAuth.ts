@@ -1,11 +1,11 @@
 import type { NextFunction, Request, Response } from "express";
-import { firebaseAdmin, firebaseReady } from "../lib/firebase-admin.js";
+import { verifyFirebaseIdToken } from "../lib/verify-firebase-id-token.js";
 
 export type AuthenticatedRequest = Request & {
   user?: {
     firebaseUid: string;
     email: string | null;
-    name?: string | null;
+    name: string | null;
   };
 };
 
@@ -15,12 +15,6 @@ export async function requireAuth(
   next: NextFunction
 ) {
   try {
-    if (!firebaseReady) {
-      return res.status(500).json({
-        message: "Firebase Admin não configurado no backend.",
-      });
-    }
-
     const authHeader = req.headers.authorization;
 
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -30,16 +24,16 @@ export async function requireAuth(
     }
 
     const token = authHeader.replace("Bearer ", "").trim();
-    const decoded = await firebaseAdmin.auth().verifyIdToken(token);
+    const decoded = await verifyFirebaseIdToken(token);
 
     req.user = {
-      firebaseUid: decoded.uid,
-      email: decoded.email ?? null,
-      name: decoded.name ?? null,
+      firebaseUid: decoded.sub,
+      email: typeof decoded.email === "string" ? decoded.email : null,
+      name: typeof decoded.name === "string" ? decoded.name : null,
     };
 
-    next();
-  } catch (error) {
+    return next();
+  } catch {
     return res.status(401).json({
       message: "Token inválido ou expirado.",
     });

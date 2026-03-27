@@ -1,0 +1,99 @@
+.screen-center {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--bgColor, #0b1020);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--cardBg, #11182d);
+  border: 1px solid var(--borderColor, rgba(255, 255, 255, 0.08));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--textColor, #ffffff);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: var(--mutedColor, #aab3c5);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--textColor, #ffffff);
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--borderColor, rgba(255, 255, 255, 0.12));
+  background: transparent;
+  color: var(--textColor, #ffffff);
+  outline: none;
+}
+
+.field input::placeholder {
+  color: var(--mutedColor, #aab3c5);
+}
+
+.field input:focus {
+  border-color: var(--accentColor, #33b4ae);
+}
+
+.primary-button {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--accentColor, #33b4ae);
+  color: #ffffff;
+}
+
+.primary-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.error-text {
+  margin: 0;
+  font-size: 14px;
+  color: #ff7b7b;
+}
+
+.helper-text {
+  margin: 0;
+  font-size: 14px;
+  color: var(--mutedColor, #aab3c5);
+  text-align: center;
+}
+
+.helper-text a {
+  color: var(--accentColor, #33b4ae);
+  text-decoration: none;
+  font-weight: 600;
+}

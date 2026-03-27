@@ -4,20 +4,32 @@ import {
   signOut,
   updateProfile,
   onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail,
   type User,
 } from "firebase/auth";
 import { auth } from "./app";
+
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
+  prompt: "select_account",
+});
 
 export async function registerUser(
   name: string,
   email: string,
   password: string
 ) {
-  const credential = await createUserWithEmailAndPassword(auth, email, password);
+  const credential = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
 
-  if (auth.currentUser) {
+  if (auth.currentUser && name.trim()) {
     await updateProfile(auth.currentUser, {
-      displayName: name,
+      displayName: name.trim(),
     });
   }
 
@@ -27,6 +39,15 @@ export async function registerUser(
 export async function loginUser(email: string, password: string) {
   const credential = await signInWithEmailAndPassword(auth, email, password);
   return credential.user;
+}
+
+export async function continueWithGoogle() {
+  const credential = await signInWithPopup(auth, googleProvider);
+  return credential.user;
+}
+
+export async function requestPasswordReset(email: string) {
+  await sendPasswordResetEmail(auth, email);
 }
 
 export async function logoutUser() {
