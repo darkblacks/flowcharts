@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import LoginPage from "@/pages/auth/LoginPage";
 import RegisterPage from "@/pages/auth/RegisterPage";
 import AccessCodePage from "@/pages/auth/AccessCodePage";
+import ProfilePage from "@/pages/profile/ProfilePage";
 import { ProtectedRoute } from "@/guards/ProtectedRoute";
 
 function PlaceholderPage() {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
   {
     element: <ProtectedRoute />,
     children: [
+      {
+        path: "/perfil",
+        element: <ProfilePage />,
+      },
       {
         path: "/codigo-acesso",
         element: <AccessCodePage />,

@@ -38,7 +38,7 @@ export default function LoginPage() {
 
     try {
       await loginUser(email.trim(), password);
-      navigate("/codigo-acesso");
+      navigate("/perfil");
     } catch {
       setError("Não foi possível entrar. Verifique e-mail e senha.");
     } finally {
@@ -53,7 +53,7 @@ export default function LoginPage() {
 
     try {
       await continueWithGoogle();
-      navigate("/codigo-acesso");
+      navigate("/Perfil");
     } catch {
       setError("Não foi possível entrar com Google.");
     } finally {
@@ -174,7 +174,7 @@ export default function LoginPage() {
           <div className="auth-bottom">
             <div className="auth-mini-brand">
               <img src={iconSrc} alt="Ícone FlowCharts" />
-              <span>FlowCharts © 2026</span>
+              <span>FlowSolution © FlowCharts</span>
             </div>
 
             <img
