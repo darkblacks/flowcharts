@@ -2,9 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
 import { envSchema } from './config/env.schema';
-
-import { AuthModule } from './modules/auth/auth.module';
 import { DatabaseModule } from './modules/database/database.module';
+import { AuthModule } from './modules/auth/auth.module';
 import { ProfileModule } from './modules/profile/profile.module';
 
 @Module({
@@ -13,6 +12,7 @@ import { ProfileModule } from './modules/profile/profile.module';
       isGlobal: true,
       load: [configuration],
       validationSchema: envSchema,
+      expandVariables: true,
     }),
     DatabaseModule,
     AuthModule,
