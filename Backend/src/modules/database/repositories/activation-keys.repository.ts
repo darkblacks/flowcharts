@@ -1,6 +1,10 @@
-import { Inject, Injectable, InternalServerErrorException } from '@nestjs/common';
+import {
+  Inject,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
+import { randomBytes } from 'node:crypto';
 import type { SupabaseClient } from '@supabase/supabase-js';
-import { randomBytes } from 'crypto';
 import { SUPABASE_CLIENT } from '../supabase.provider';
 
 type ActivationKeyRow = {
@@ -19,49 +23,31 @@ type ActivationKeyRow = {
 export class ActivationKeysRepository {
   constructor(@Inject(SUPABASE_CLIENT) private readonly supabase: SupabaseClient) {}
 
-  generateCode(prefix = 'FC'): string {
-    const random = randomBytes(4).toString('hex').toUpperCase();
-    return `${prefix}-${random}`;
-  }
-
-  async ensureKeysForSubscription(input: {
-    userId: string;
-    subscriptionId: string;
-    quantity: number;
-  }): Promise<void> {
-    const { data: existing, error: existingError } = await this.supabase
+  async countAvailableBySubscriptionId(subscriptionId: string) {
+    const { count, error } = await this.supabase
       .from('activation_keys')
-      .select('id')
-      .eq('subscription_id', input.subscriptionId)
-      .in('status', ['available', 'redeemed']);
+      .select('id', { count: 'exact', head: true })
+      .eq('subscription_id', subscriptionId)
+      .eq('status', 'available');
 
-    if (existingError) {
-      throw new InternalServerErrorException('Falha ao verificar activation keys.');
-    }
-
-    const existingCount = existing?.length ?? 0;
-    const missing = Math.max(0, input.quantity - existingCount);
-    if (missing === 0) return;
-
-    const rows = Array.from({ length: missing }).map(() => ({
-      user_id: input.userId,
-      subscription_id: input.subscriptionId,
-      code: this.generateCode(),
-      status: 'available',
-    }));
-
-    const { error } = await this.supabase.from('activation_keys').insert(rows);
     if (error) {
-      throw new InternalServerErrorException('Falha ao criar activation keys.');
+      throw new InternalServerErrorException('Falha ao contar activation keys disponíveis.');
     }
+
+    return count ?? 0;
   }
 
-  async findAvailableByCodeForUser(input: { userId: string; code: string }) {
+
+  async findAvailableByCodeForUser(input: { code: string; userId: string }) {
+    return this.findAvailableByCodeAndUserId(input);
+  }
+
+  async findAvailableByCodeAndUserId(input: { code: string; userId: string }) {
     const { data, error } = await this.supabase
       .from('activation_keys')
       .select('*')
+      .eq('code', input.code.trim().toUpperCase())
       .eq('user_id', input.userId)
-      .eq('code', input.code)
       .eq('status', 'available')
       .maybeSingle<ActivationKeyRow>();
 
@@ -69,22 +55,46 @@ export class ActivationKeysRepository {
       throw new InternalServerErrorException('Falha ao buscar activation key.');
     }
 
-    if (!data) return null;
-
-    if (data.expires_at && new Date(data.expires_at).getTime() <= Date.now()) {
-      return null;
-    }
-
     return data;
   }
 
-  async redeem(input: { activationKeyId: string; projectId: string }): Promise<void> {
+  async ensureAvailableKeys(input: {
+    userId: string;
+    subscriptionId: string;
+    quantity: number;
+    expiresAt?: string | null;
+  }) {
+    const available = await this.countAvailableBySubscriptionId(input.subscriptionId);
+    const missing = Math.max(0, input.quantity - available);
+
+    if (missing === 0) {
+      return;
+    }
+
+    const keys = Array.from({ length: missing }, () => ({
+      user_id: input.userId,
+      subscription_id: input.subscriptionId,
+      code: this.generateCode(),
+      status: 'available',
+      expires_at: input.expiresAt ?? null,
+    }));
+
+    const { error } = await this.supabase.from('activation_keys').insert(keys);
+
+    if (error) {
+      throw new InternalServerErrorException('Falha ao gerar activation keys.');
+    }
+  }
+
+  async redeem(input: { activationKeyId: string; projectId: string }) {
+    const now = new Date().toISOString();
+
     const { error } = await this.supabase
       .from('activation_keys')
       .update({
         status: 'redeemed',
         redeemed_project_id: input.projectId,
-        redeemed_at: new Date().toISOString(),
+        redeemed_at: now,
       })
       .eq('id', input.activationKeyId)
       .eq('status', 'available');
@@ -94,18 +104,7 @@ export class ActivationKeysRepository {
     }
   }
 
-  async listAvailableByUserId(userId: string) {
-    const { data, error } = await this.supabase
-      .from('activation_keys')
-      .select('id, code, status, issued_at, expires_at')
-      .eq('user_id', userId)
-      .eq('status', 'available')
-      .order('issued_at', { ascending: false });
-
-    if (error) {
-      throw new InternalServerErrorException('Falha ao listar activation keys.');
-    }
-
-    return data ?? [];
+  private generateCode() {
+    return `FC-${randomBytes(4).toString('hex').toUpperCase()}`;
   }
 }

@@ -1,4 +1,4 @@
-import { IsString, Matches, MaxLength, MinLength } from 'class-validator';
+import { IsString, MaxLength, MinLength, Matches } from 'class-validator';
 
 export class ActivateProjectDto {
   @IsString()
@@ -7,6 +7,8 @@ export class ActivateProjectDto {
   name!: string;
 
   @IsString()
-  @Matches(/^[A-Z0-9-]+$/)
+  @Matches(/^[A-Z0-9-]+$/i, {
+    message: 'activationKey deve conter apenas letras, números e hífens.',
+  })
   activationKey!: string;
 }

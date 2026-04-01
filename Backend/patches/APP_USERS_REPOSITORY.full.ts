@@ -1,7 +1,7 @@
 import { Inject, Injectable, InternalServerErrorException } from '@nestjs/common';
 import type { SupabaseClient } from '@supabase/supabase-js';
-import { SUPABASE_CLIENT } from '../supabase.provider';
-import type { CurrentAppUser } from '../../../common/interfaces/request-context.interface';
+import { SUPABASE_CLIENT } from '../src/modules/database/supabase.provider';
+import type { CurrentAppUser } from '../src/common/interfaces/request-context.interface';
 
 type AppUserRow = {
   id: string;
