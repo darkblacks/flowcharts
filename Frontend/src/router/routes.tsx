@@ -1,4 +1,5 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
+import Inicialpage from "@/pages/inicialpage/InicialPage";
 import LoginPage from "@/pages/auth/LoginPage";
 import RegisterPage from "@/pages/auth/RegisterPage";
 import AccessCodePage from "@/pages/auth/AccessCodePage";
@@ -19,7 +20,11 @@ function PlaceholderPage() {
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/login" replace />,
+    element: <Navigate to="/inicial" replace />,
+  },
+  {
+    path: "/inicial",
+    element: <Inicialpage />,
   },
   {
     path: "/login",

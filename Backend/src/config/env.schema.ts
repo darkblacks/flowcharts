@@ -13,4 +13,12 @@ export const envSchema = Joi.object({
 
   SUPABASE_URL: Joi.string().uri().required(),
   SUPABASE_SERVICE_ROLE_KEY: Joi.string().required(),
+
+  FRONTEND_URL: Joi.string().uri().required(),
+  MP_BASE_URL: Joi.string().uri().default('https://api.mercadopago.com'),
+  MP_ACCESS_TOKEN: Joi.string().required(),
+  MP_WEBHOOK_SECRET: Joi.string().allow('').optional(),
+  MP_NOTIFICATION_URL: Joi.string().uri().required(),
+  CF_R2_BUCKET: Joi.string().required(),
+  CF_R2_PUBLIC_BASE_URL: Joi.string().uri().allow('').optional(),
 });

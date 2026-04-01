@@ -1,10 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+
 import configuration from './config/configuration';
 import { envSchema } from './config/env.schema';
-import { DatabaseModule } from './modules/database/database.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { DatabaseModule } from './modules/database/database.module';
 import { ProfileModule } from './modules/profile/profile.module';
+import { BillingModule } from './modules/billing/billing.module';
+import { BillingWebhooksModule } from './modules/billing-webhooks/billing-webhooks.module';
+import { ProjectsModule } from './modules/projects/projects.module';
 
 @Module({
   imports: [
@@ -17,6 +21,9 @@ import { ProfileModule } from './modules/profile/profile.module';
     DatabaseModule,
     AuthModule,
     ProfileModule,
+    BillingModule,
+    BillingWebhooksModule,
+    ProjectsModule,
   ],
 })
 export class AppModule {}

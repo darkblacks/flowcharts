@@ -14,7 +14,7 @@ import iconLight from "@/assets/images/light/F.png";
 import iconDark from "@/assets/images/dark/F-escura.png";
 import mascot from "@/assets/images/empty/logomascote.png";
 
-import "@/styles/pages/auth.css";
+import "@/styles/pages/login.css";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ export default function LoginPage() {
 
     try {
       await continueWithGoogle();
-      navigate("/Perfil");
+      navigate("/perfil");
     } catch {
       setError("Não foi possível entrar com Google.");
     } finally {
@@ -79,31 +79,34 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="auth-page">
-      <div className="auth-page__glow auth-page__glow--left" />
-      <div className="auth-page__glow auth-page__glow--right" />
+    <main className="login-page">
+      <div className="login-page__glow login-page__glow--left" />
+      <div className="login-page__glow login-page__glow--right" />
 
-      <section className="auth-shell auth-shell--center">
-        <div className="card auth-card auth-card--single">
-          <div className="auth-topbar">
-            <img className="auth-topbar__logo" src={logoSrc} alt="FlowCharts" />
-            <ThemeToggle />
+      <section className="login-shell">
+        <div className="card login-card">
+          <div className="login-topbar">
+            <img className="login-topbar__logo" src={logoSrc} alt="FlowCharts" />
+
+            <div className="login-topbar__toggle">
+              <ThemeToggle />
+            </div>
           </div>
 
-          <div className="auth-intro auth-intro--center">
-            <h1 className="auth-heading">Bem-vindo de volta</h1>
-            <p className="auth-copy">
+          <div className="login-intro">
+            <h1 className="login-title">Bem-vindo de volta</h1>
+            <p className="login-subtitle">
               Entre na sua conta para acessar seus ambientes e dashboards.
             </p>
           </div>
 
           <button
             type="button"
-            className="social-button"
+            className="login-social-button"
             onClick={handleGoogleLogin}
             disabled={googleLoading}
           >
-            <span className="social-button__icon" aria-hidden="true">
+            <span className="login-social-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="18" height="18">
                 <path
                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -123,14 +126,17 @@ export default function LoginPage() {
                 />
               </svg>
             </span>
-            <span>{googleLoading ? "Conectando..." : "Entrar com Google"}</span>
+
+            <span>
+              {googleLoading ? "Conectando..." : "Entrar com Google"}
+            </span>
           </button>
 
-          <div className="auth-divider">
+          <div className="login-divider">
             <span>ou entre com e-mail</span>
           </div>
 
-          <form onSubmit={handleSubmit}>
+          <form className="login-form" onSubmit={handleSubmit}>
             <label className="field">
               <span>E-mail</span>
               <input
@@ -153,10 +159,10 @@ export default function LoginPage() {
               />
             </label>
 
-            <div className="auth-inline-link-row">
+            <div className="login-inline-row">
               <button
                 type="button"
-                className="auth-inline-link"
+                className="login-inline-link"
                 onClick={handleForgotPassword}
               >
                 Esqueci minha senha
@@ -171,14 +177,14 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <div className="auth-bottom">
-            <div className="auth-mini-brand">
+          <div className="login-bottom">
+            <div className="login-mini-brand">
               <img src={iconSrc} alt="Ícone FlowCharts" />
               <span>FlowSolution © FlowCharts</span>
             </div>
 
             <img
-              className="auth-mascot auth-mascot--login"
+              className="login-mascot"
               src={mascot}
               alt="Mascote FlowCharts"
             />
